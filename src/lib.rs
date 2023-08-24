@@ -1,6 +1,7 @@
 mod usage;
 mod cd;
 mod pathutil;
+mod lang;
 
 use colored::Colorize;
 use usage::{show_usage_and_exit, UsageType};
@@ -12,7 +13,7 @@ pub fn run() {
 
     match args.nth(1) {
         Some(cmd) if cmd == "cd" => {
-            cd::exec(args.nth(2));
+            cd::exec(args.next());
         },
         Some(cmd) if cmd == "pwd" => {
             unimplemented!();

@@ -1,5 +1,5 @@
 mod usage;
-mod cd;
+mod convert;
 mod pathutil;
 mod lang;
 
@@ -12,8 +12,8 @@ pub fn run() {
     let args = &mut args();
 
     match args.nth(1) {
-        Some(cmd) if cmd == "cd" => {
-            cd::exec(args.next());
+        Some(cmd) if cmd == "convert" => {
+            convert::exec(args.next());
         },
         Some(cmd) if cmd == "pwd" => {
             unimplemented!();

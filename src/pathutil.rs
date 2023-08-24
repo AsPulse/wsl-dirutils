@@ -32,15 +32,6 @@ pub fn convert_to_wsl_with_notify(path: String) -> String {
         }
     }
 }
-
-pub fn surround_if_needed(path: String) -> String {
-    if path.contains(r" ") || path.contains(r"(") || path.contains(r")") {
-        format!("\"{}\"", path)
-    } else {
-        path
-    }
-}
-
 #[cfg(test)]
 mod is_win_path_tests {
     use crate::pathutil::is_win_path;
@@ -61,16 +52,3 @@ mod is_win_path_tests {
     }
 }
 
-#[cfg(test)]
-mod surround_if_needed_tests {
-    use crate::pathutil::surround_if_needed;
-
-    #[test]
-    fn need_surround() {
-        assert_eq!(surround_if_needed("/mnt/c/Program Files (x86)/Microsoft".to_string()), "\"/mnt/c/Program Files (x86)/Microsoft\"");
-    }
-    #[test]
-    fn not_need_surround() {
-        assert_eq!(surround_if_needed("/mnt/e/Library".to_string()), "/mnt/e/Library")
-    }
-}

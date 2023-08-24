@@ -1,12 +1,32 @@
-use lazy_static::lazy_static;
+use colored::Colorize;
+use once_cell::sync::Lazy;
 use regex::Regex;
+use wslpath::windows_to_wsl;
 
-lazy_static! {
-    static ref WIN_PATH_RE: Regex = Regex::new(r"^[A-z]:(\\|\/)").unwrap();
-}
+use crate::lang::{MESSAGE_LOGO, MESSAGE_VERT};
+static WIN_PATH_RE: Lazy<Regex> = Lazy::new(|| Regex::new(r"^[A-z]:(\\|\/)").unwrap());
 
 pub fn is_win_path(path: &str) -> bool {
     WIN_PATH_RE.is_match(path)
+}
+
+pub fn convert_to_wsl_with_notify(path: String) -> String {
+    if !is_win_path(&path) {
+        return path;
+    }
+
+    eprintln!("{}Converting... {}", *MESSAGE_LOGO, &path);
+
+    return match windows_to_wsl(&path) {
+        Ok(wsl_path) => {
+            eprintln!("{}{}", *MESSAGE_VERT, &wsl_path);
+            wsl_path
+        }
+        Err(e) =>{
+            eprintln!("{}{}{}", *MESSAGE_VERT, "Unable: ".red().bold(), e.to_string().red());
+            path
+        }
+    }
 }
 
 #[cfg(test)]

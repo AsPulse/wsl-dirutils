@@ -1,8 +1,8 @@
 mod convert;
 mod lang;
 mod pathutil;
-mod usage;
 mod pwd;
+mod usage;
 
 use colored::Colorize;
 use std::env::args;

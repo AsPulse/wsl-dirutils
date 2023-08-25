@@ -1,6 +1,8 @@
 # wsl-dirutils
 The tool that wraps directory/path-related commands in wslpath.
 
+<br />
+
 ## Example Config
 
 After installed wsl-dirutils, append below code to your `.zshrc`.
@@ -10,6 +12,7 @@ function cd() {
 }
 ```
 
+<br />
 
 ## How to use?
 
@@ -27,10 +30,14 @@ stderr:
  ⮑ /mnt/c/users/aspulse
 ```
 
+<br />
+
 ## Thanks to wsl-path-rust! 
 
 We express our gratitude to [wsl-path-rust](https://github.com/pratikpc/wsl-path-rust), the crate that calls wslpath.exe from Rust!
 It made it really easy to development...!
+
+<br />
 
 ## Author
 

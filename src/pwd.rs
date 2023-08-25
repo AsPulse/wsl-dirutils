@@ -26,6 +26,7 @@ pub fn exec() {
         }
         Ok(Some(pwd)) => {
             println!("{}", pwd);
+            eprintln!("{}", pwd);
             exit(0);
         }
         _ => {

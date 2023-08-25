@@ -1,6 +1,7 @@
 [package]
 name = "wsl-dirutils"
 version = "0.1.0"
+description = "The cli tool that wraps directory/path-related commands in wslpath."
 edition = "2021"
 license = "MIT"
 readme = "README.md"

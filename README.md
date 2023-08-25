@@ -10,8 +10,12 @@ After installing wsl-dirutils, append the below code to your `.zshrc`.
 function cd() {
   builtin cd "$(wsl-dirutils convert "$*")"
 }
+function pwd() {
+  wsl-dirutils pwd > /dev/null
+}
 ```
-![image](https://github.com/AsPulse/wsl-dirutils/assets/84216737/cfe4f0cb-8b06-4a84-abb6-392587ab0d40)
+![image](https://github.com/AsPulse/wsl-dirutils/assets/84216737/c47883a1-a4dd-4840-86c6-5308797355be)
+
 
 
 <br />
@@ -30,6 +34,20 @@ stdout:
 stderr:
 ⊘ wsl-dirutils Converting... C:\users\aspulse
  ⮑ /mnt/c/users/aspulse
+```
+
+`wsl-dirutils pwd <path>` outputs the path of the current directory to stdout.  
+If the current directory is under Windows such as `/mnt/c/...`, the wsl-dirutils outputs both styles to stderr.
+```bash
+$ wsl-dirutils pwd
+
+stdout:
+/mnt/c/Users/aspulse
+
+stderr:
+⊘ wsl-dirutils
+ ⮑  /mnt/c/Users/aspulse (linux)
+ ⮑  C:\Users\aspulse (win)
 ```
 
 <br />

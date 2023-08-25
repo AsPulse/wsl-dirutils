@@ -1,6 +1,7 @@
 mod convert;
 mod lang;
 mod pathutil;
+mod pwd;
 mod usage;
 
 use colored::Colorize;
@@ -16,7 +17,7 @@ pub fn run() {
             convert::exec(args.next());
         }
         Some(cmd) if cmd == "pwd" => {
-            unimplemented!();
+            pwd::exec();
         }
         Some(cmd) => {
             eprintln!("Command {} is currently not supported.", cmd.bold());

@@ -2,6 +2,7 @@ mod convert;
 mod lang;
 mod pathutil;
 mod usage;
+mod pwd;
 
 use colored::Colorize;
 use std::env::args;
@@ -16,7 +17,7 @@ pub fn run() {
             convert::exec(args.next());
         }
         Some(cmd) if cmd == "pwd" => {
-            unimplemented!();
+            pwd::exec();
         }
         Some(cmd) => {
             eprintln!("Command {} is currently not supported.", cmd.bold());

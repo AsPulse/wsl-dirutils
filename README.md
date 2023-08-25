@@ -14,7 +14,8 @@ function pwd() {
   wsl-dirutils pwd > /dev/null
 }
 ```
-![image](https://github.com/AsPulse/wsl-dirutils/assets/84216737/cfe4f0cb-8b06-4a84-abb6-392587ab0d40)
+![image](https://github.com/AsPulse/wsl-dirutils/assets/84216737/c47883a1-a4dd-4840-86c6-5308797355be)
+
 
 
 <br />
@@ -35,8 +36,8 @@ stderr:
  ⮑ /mnt/c/users/aspulse
 ```
 
-`wsl-dirutils pwd <path>` outputs the path of current directory to stdout.  
-If the current directory is under windows such as `/mnt/c/...`, the wsl-dirutils outputs both styles to stderr.
+`wsl-dirutils pwd <path>` outputs the path of the current directory to stdout.  
+If the current directory is under Windows such as `/mnt/c/...`, the wsl-dirutils outputs both styles to stderr.
 ```bash
 $ wsl-dirutils pwd
 

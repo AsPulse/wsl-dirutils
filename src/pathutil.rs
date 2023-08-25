@@ -15,22 +15,37 @@ pub fn convert_to_wsl_with_notify(path: String) -> String {
         return path;
     }
 
-    eprintln!("{}{} {}", *MESSAGE_LOGO, "Converting...".cyan(), &path.bright_black());
+    eprintln!(
+        "{}{} {}",
+        *MESSAGE_LOGO,
+        "Converting...".cyan(),
+        &path.bright_black()
+    );
 
     return match windows_to_wsl(&path) {
-        Ok(wsl_path) if wsl_path != "" => {
+        Ok(wsl_path) if !wsl_path.is_empty() => {
             eprintln!("{}{}", *MESSAGE_VERT, &wsl_path);
             wsl_path
         }
         Ok(_) => {
-            eprintln!("{}{}{}", *MESSAGE_VERT, "Unable: ".red().bold(), "wslpath returned empty string.".red());
+            eprintln!(
+                "{}{}{}",
+                *MESSAGE_VERT,
+                "Unable: ".red().bold(),
+                "wslpath returned empty string.".red()
+            );
             path
         }
-        Err(e) =>{
-            eprintln!("{}{}{}", *MESSAGE_VERT, "Unable: ".red().bold(), e.to_string().red());
+        Err(e) => {
+            eprintln!(
+                "{}{}{}",
+                *MESSAGE_VERT,
+                "Unable: ".red().bold(),
+                e.to_string().red()
+            );
             path
         }
-    }
+    };
 }
 #[cfg(test)]
 mod is_win_path_tests {
@@ -51,4 +66,3 @@ mod is_win_path_tests {
         assert_eq!(is_win_path(r"/home/aspulse"), false);
     }
 }
-

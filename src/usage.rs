@@ -1,5 +1,5 @@
-use std::process::exit;
 use colored::Colorize;
+use std::process::exit;
 
 pub enum UsageType {
     Root,

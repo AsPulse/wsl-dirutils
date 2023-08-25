@@ -9,6 +9,7 @@ use std::env::args;
 
 
 pub fn run() {
+    colored::control::set_override(true);
     let args = &mut args();
 
     match args.nth(1) {

@@ -18,7 +18,7 @@ function cd() {
 
 ## How to use?
 
-`wsl-dirutils convert <path>` outputs the path for Linux to stdout.
+`wsl-dirutils convert <path>` outputs the path for Linux to stdout.  
 Stderr is used to output messages for the user.
 
 ```bash
@@ -36,7 +36,7 @@ stderr:
 
 ## Thanks to wsl-path-rust! 
 
-We express our gratitude to [wsl-path-rust](https://github.com/pratikpc/wsl-path-rust), the crate that calls wslpath.exe from Rust!
+We express our gratitude to [wsl-path-rust](https://github.com/pratikpc/wsl-path-rust), the crate that calls wslpath.exe from Rust!  
 It made it really easy to implement...!
 
 <br />

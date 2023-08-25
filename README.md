@@ -41,6 +41,6 @@ It made it really easy to development...!
 
 ## Author
 
-~~Twitter~~ X: [\_AsPulse\_](https://x.com/_AsPulse_)
+~~Twitter~~ X: [@\_AsPulse\_](https://x.com/_AsPulse_)
 
 

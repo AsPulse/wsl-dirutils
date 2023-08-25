@@ -3,6 +3,15 @@ The tool that wraps directory/path-related commands in wslpath.
 
 <br />
 
+## Installation
+```
+cargo install wsl-dirutils
+```
+This tool is intended to be used from shell functions and shell aliases;  
+see Example Config and How to use...
+
+<br />
+
 ## Example Config
 
 After installing wsl-dirutils, append the below code to your `.zshrc`.

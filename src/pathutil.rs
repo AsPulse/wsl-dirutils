@@ -5,9 +5,13 @@ use wslpath::windows_to_wsl;
 
 use crate::lang::{MESSAGE_LOGO, MESSAGE_VERT};
 static WIN_PATH_RE: Lazy<Regex> = Lazy::new(|| Regex::new(r"^[A-z]:(\\|\/)").unwrap());
+static MOUNTED_WIN_PATH_RE: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\/mnt\/[a-z]").unwrap());
 
 pub fn is_win_path(path: &str) -> bool {
     WIN_PATH_RE.is_match(path)
+}
+pub fn is_mounted_win_path(path: &str) -> bool {
+    MOUNTED_WIN_PATH_RE.is_match(path)
 }
 
 pub fn convert_to_wsl_with_notify(path: String) -> String {
@@ -64,5 +68,18 @@ mod is_win_path_tests {
     #[test]
     fn linux_path_should_be_false() {
         assert_eq!(is_win_path(r"/home/aspulse"), false);
+    }
+}
+#[cfg(test)]
+mod is_mounted_win_path_tests {
+    use crate::pathutil::is_mounted_win_path;
+
+    #[test]
+    fn mounted_win_path_should_be_true() {
+        assert_eq!(is_mounted_win_path(r"/mnt/c/Users/aspulse/Desktop"), true);
+    }
+    #[test]
+    fn in_wsl_path_should_be_false() {
+        assert_eq!(is_mounted_win_path(r"/home/aspulse"), false);
     }
 }

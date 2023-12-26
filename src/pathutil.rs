@@ -26,7 +26,7 @@ pub fn convert_to_wsl_with_notify(path: String) -> String {
         &path.bright_black()
     );
 
-    return match windows_to_wsl(&path) {
+    match windows_to_wsl(&path) {
         Ok(wsl_path) if !wsl_path.is_empty() => {
             eprintln!("{}{}", *MESSAGE_VERT, &wsl_path);
             wsl_path
@@ -49,7 +49,7 @@ pub fn convert_to_wsl_with_notify(path: String) -> String {
             );
             path
         }
-    };
+    }
 }
 #[cfg(test)]
 mod is_win_path_tests {
@@ -57,17 +57,17 @@ mod is_win_path_tests {
 
     #[test]
     fn win_path_should_be_true() {
-        assert_eq!(is_win_path(r"C:\Users\aspulse\Desktop"), true);
+        assert!(is_win_path(r"C:\Users\aspulse\Desktop"));
     }
 
     #[test]
     fn win_path_with_slash_should_be_true() {
-        assert_eq!(is_win_path(r"C:/Users/aspulse/Desktop"), true);
+        assert!(is_win_path(r"C:/Users/aspulse/Desktop"));
     }
 
     #[test]
     fn linux_path_should_be_false() {
-        assert_eq!(is_win_path(r"/home/aspulse"), false);
+        assert!(!is_win_path(r"/home/aspulse"));
     }
 }
 #[cfg(test)]
@@ -76,10 +76,10 @@ mod is_mounted_win_path_tests {
 
     #[test]
     fn mounted_win_path_should_be_true() {
-        assert_eq!(is_mounted_win_path(r"/mnt/c/Users/aspulse/Desktop"), true);
+        assert!(is_mounted_win_path(r"/mnt/c/Users/aspulse/Desktop"));
     }
     #[test]
     fn in_wsl_path_should_be_false() {
-        assert_eq!(is_mounted_win_path(r"/home/aspulse"), false);
+        assert!(!is_mounted_win_path(r"/home/aspulse"));
     }
 }

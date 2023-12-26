@@ -70,6 +70,6 @@ It made it really easy to implement...!
 
 ## Author
 
-~~Twitter~~ X: [@\_AsPulse\_](https://x.com/_AsPulse_)
+Twitter (X): [@aspuls3](https://x.com/aspuls3)
 
 
